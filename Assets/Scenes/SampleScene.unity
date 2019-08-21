@@ -728,8 +728,6 @@ MonoBehaviour:
     type: 3}
   spawnInterval: 3
   enemySpeed: 1
-  difficultySpikeTimer: 0
-  spikeOver: 0
 --- !u!114 &1494665471
 MonoBehaviour:
   m_ObjectHideFlags: 0
