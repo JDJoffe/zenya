@@ -452,7 +452,6 @@ MonoBehaviour:
   playerSpawnMethod: 1
   spawnPrefabs:
   - {fileID: 1548100377848816, guid: 5c007df781d02814ab79da2d9b0c6884, type: 3}
-  - {fileID: 1422156884288674, guid: 8928aaffe82082641b83e5631eb2c5e9, type: 3}
 --- !u!4 &937502332
 Transform:
   m_ObjectHideFlags: 0
@@ -743,7 +742,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 821373288
+  m_SceneId: 3353866817
 --- !u!4 &1494665472
 Transform:
   m_ObjectHideFlags: 0

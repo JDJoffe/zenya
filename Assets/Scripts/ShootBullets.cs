@@ -21,22 +21,30 @@ public class ShootBullets : NetworkBehaviour
         {
             if (this.isLocalPlayer && Input.GetKey(KeyCode.Space))
             {
-                this.CmdShoot();
+                this.CmdShoot(transform.position);
              
             }
             shootTimer = 0;
         }
     }
 
-    [Command]
-    void CmdShoot()
+    // commands only run on server
+    //RPC (Remote Procedure Call) runs on client but called from server
+
+    [ClientRpc]
+    void RpcClientShot(Vector3 pos)
     {
-        //instantiate
-        GameObject bullet = Instantiate(bulletPrefab, this.transform.position, Quaternion.identity);
-        //give speed + get rigidbody
-        bullet.GetComponent<Rigidbody2D>().velocity = Vector2.up * bulletSpeed;
-        NetworkServer.Spawn(bullet);
-        //destroy after 1 second
-        Destroy(bullet, 1.0f);
+        GameObject bullet = Instantiate(bulletPrefab, pos, Quaternion.identity);
+        Rigidbody2D rigid = bullet.GetComponent<Rigidbody2D>();
+        rigid.velocity = Vector2.up * bulletSpeed;
+        Destroy(bullet, 1f);
+    }
+
+
+    [Command]
+    void CmdShoot(Vector3 pos)
+    {
+        //tell client to spawn bullet
+        RpcClientShot(pos);
     }
 }
