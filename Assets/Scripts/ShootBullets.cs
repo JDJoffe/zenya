@@ -22,6 +22,7 @@ public class ShootBullets : NetworkBehaviour
             if (this.isLocalPlayer && Input.GetKey(KeyCode.Space))
             {
                 this.CmdShoot();
+             
             }
             shootTimer = 0;
         }

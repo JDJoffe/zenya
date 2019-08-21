@@ -15,37 +15,46 @@ public class SpawnEnemies : NetworkBehaviour
     [SerializeField]
     private float enemySpeed = 1.0f;
 
-    [SerializeField]
-    private float difficultySpikeTimer;
-    [SerializeField]
-    private float spikeOver;
-    public void Update()
-    {
-        //spontaneous difficulty spike hehe
-        difficultySpikeTimer += Time.deltaTime;
-        if (difficultySpikeTimer >= 10)
-        {
-            spawnInterval = 1f;
+    //[SerializeField]
+    //private float difficultySpikeTimer;
+    //[SerializeField]
+    //private float spikeOver;
+    //[SerializeField]
+    //    private float maxInterval =3;
+    //public void Update()
+    //{
+    //    spawnInterval += Time.deltaTime;
+    //    if (spawnInterval >= maxInterval)
+    //    {
+    //        SpawnEnemy(this.spawnInterval);
+    //       // InvokeRepeating("SpawnEnemy", this.spawnInterval, this.spawnInterval);
+    //        spawnInterval = 0;
+    //    }
+    //    //spontaneous difficulty spike hehe
+    //    difficultySpikeTimer += Time.deltaTime;
+    //    if (difficultySpikeTimer >= 10)
+    //    {
+    //        maxInterval = 1f;
             
-            spikeOver += Time.deltaTime;
+    //        spikeOver += Time.deltaTime;
            
-            if (spikeOver >= 2)
-            {
-                difficultySpikeTimer = 0;
-                spawnInterval = 3f;
+    //        if (spikeOver >= 4)
+    //        {
+    //            difficultySpikeTimer = 0;
+    //            maxInterval = 3f;
                
-                spikeOver = 0;
+    //            spikeOver = 0;
                
-            }
-
+    //        }
            
-        }
+           
+    //    }
         
-    }
+    //}
    
     public override void OnStartServer()
     {
-       
+
         //call void
         InvokeRepeating("SpawnEnemy", this.spawnInterval, this.spawnInterval);
     }
